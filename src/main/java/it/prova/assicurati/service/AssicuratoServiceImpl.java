@@ -7,39 +7,34 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import it.prova.assicurati.exception.AssicuratoNotFoundException;
 import it.prova.assicurati.model.Assicurato;
 import it.prova.assicurati.repository.AssicuratoRepository;
 
 @Service
-public class AssicuratoServiceImpl {
+public class AssicuratoServiceImpl implements AssicuratoService{
 	
 	@Autowired
-	private AssicuratoRepository associatoRepository;
+	private AssicuratoRepository assicuratoRepository;
 	
 	@Transactional
 	public List<Assicurato> listAll() {
-		return (List<Assicurato>) associatoRepository.findAll();
+		return (List<Assicurato>) assicuratoRepository.findAll();
 	}
+	
 	@Transactional
-	public Assicurato cariscaSingoloElemento(Long id) {
-		return associatoRepository.findById(id).orElse(null);
-	}
-
-	@Transactional
-	public Assicurato inserisciNuovo(Assicurato transientInstance) {
-		return associatoRepository.save(transientInstance);
-	}
-
-	@Transactional
-	public Assicurato get(Long idInput) {
-		return associatoRepository.findById(idInput)
-				.orElseThrow(() -> new AssicuratoNotFoundException("Element with id " + idInput + " not found."));
-	}
-
-	@Transactional
-	public Assicurato save(Assicurato input) {
-		return associatoRepository.save(input);
+	public boolean AggiungiAssicurato(List<Assicurato> assicurati) {
+		for (Assicurato assicuratoItem : assicurati) {
+			
+			Assicurato assicurato = assicuratoRepository.findByCodiceFiscale(assicuratoItem.getCodiceFiscale());
+			
+			if(assicurato != null) {
+				assicurato.setNumeroSinistri(assicurato.getNumeroSinistri() + assicuratoItem.getNumeroSinistri());
+				assicuratoRepository.save(assicurato);
+			}else {
+				assicuratoRepository.save(assicuratoItem);
+			}
+		}
+		return true;
 	}
 
 }
