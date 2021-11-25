@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assicurati>
+	<assicurato>
+	  <nome>Leo</nome>
+	  <cognome>Iapp</cognome>
+	  <dataNascita>2001-01-01</dataNascita>
+	  <numeroSinistri>20</numeroSinistri>
+	</assicurato>
+</assicurati>
