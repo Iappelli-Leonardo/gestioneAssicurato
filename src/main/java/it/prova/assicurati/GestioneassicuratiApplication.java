@@ -1,4 +1,4 @@
-package it.prova.gestione;
+package it.prova.assicurati;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

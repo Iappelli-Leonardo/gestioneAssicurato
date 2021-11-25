@@ -1,4 +1,4 @@
-package it.prova.gestione.model;
+package it.prova.assicurati.model;
 
 import java.util.Date;
 

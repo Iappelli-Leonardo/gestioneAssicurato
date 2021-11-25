@@ -1,4 +1,4 @@
-package it.prova.gestione;
+package it.prova.assicurati;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;

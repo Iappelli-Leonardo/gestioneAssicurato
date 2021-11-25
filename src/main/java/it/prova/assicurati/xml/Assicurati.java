@@ -6,7 +6,7 @@
 //
 
 
-package it.prova.gestione.xml;
+package it.prova.assicurati.xml;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
