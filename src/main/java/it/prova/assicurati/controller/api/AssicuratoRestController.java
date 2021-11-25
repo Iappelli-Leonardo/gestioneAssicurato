@@ -35,7 +35,7 @@ public class AssicuratoRestController {
 
 		try {
 
-			File file = new File("xml/Assicurati.xml");
+			File file = new File("C:\\Corso\\ws-eclipse\\gestioneAssicurazione\\src\\main\\java\\it\\prova\\assicurati\\listaXml\\assicurati.xml");
 			JAXBContext jaxbContext = JAXBContext.newInstance(Assicurati.class);
 
 			Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
@@ -52,13 +52,14 @@ public class AssicuratoRestController {
 			}
 
 			for (Assicurato assicuratoItem : assicurati) {
-				if (assicuratoItem.getNumeroSinistri() < 0 && assicuratoItem.getNome().matches(".*\\d.*") && assicuratoItem.getCognome().matches(".*\\d.*")) {
-					file.renameTo(new File("xml/error/assicurati.xml"));
+				if (assicuratoItem.getNumeroSinistri() < 0 && //controllo se sono presenti dei numeri nella stringa
+						assicuratoItem.getNome().matches(".*\\d.*") && assicuratoItem.getCognome().matches(".*\\d.*")) {
+					file.renameTo(new File("C:\\Corso\\ws-eclipse\\gestioneAssicurazione\\src\\main\\java\\xml\\error\\assicurati.xml"));
 				}
 			}
 				assicuratoService.aggiungiAssicurato(assicurati);
 				
-			file.renameTo(new File("xml/pass/assicurati.xml"));
+			file.renameTo(new File("C:\\Corso\\ws-eclipse\\gestioneAssicurazione\\src\\main\\java\\xml\\pass\\assicurati.xml"));
 
 		} catch (JAXBException e) {
 			e.printStackTrace();
