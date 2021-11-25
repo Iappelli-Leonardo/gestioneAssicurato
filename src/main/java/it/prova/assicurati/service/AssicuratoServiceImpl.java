@@ -22,7 +22,7 @@ public class AssicuratoServiceImpl implements AssicuratoService{
 	}
 	
 	@Transactional
-	public boolean AggiungiAssicurato(List<Assicurato> assicurati) {
+	public boolean aggiungiAssicurato(List<Assicurato> assicurati) {
 		for (Assicurato assicuratoItem : assicurati) {
 			
 			Assicurato assicurato = assicuratoRepository.findByCodiceFiscale(assicuratoItem.getCodiceFiscale());

@@ -10,6 +10,7 @@ package it.prova.assicurati.xml;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -132,9 +133,9 @@ public class Assicurati {
         protected String cognome;
         @XmlElement(required = true)
         @XmlSchemaType(name = "date")
-        protected XMLGregorianCalendar dataNascita;
+        protected Date dataNascita;
         @XmlElement(required = true)
-        protected BigInteger numeroSinistri;
+        protected Integer numeroSinistri;
         @XmlElement(required = true)
         protected String codiceFiscale;
 
@@ -194,7 +195,7 @@ public class Assicurati {
          *     {@link XMLGregorianCalendar }
          *     
          */
-        public XMLGregorianCalendar getDataNascita() {
+        public Date getDataNascita() {
             return dataNascita;
         }
 
@@ -206,7 +207,7 @@ public class Assicurati {
          *     {@link XMLGregorianCalendar }
          *     
          */
-        public void setDataNascita(XMLGregorianCalendar value) {
+        public void setDataNascita(Date value) {
             this.dataNascita = value;
         }
 
@@ -218,7 +219,7 @@ public class Assicurati {
          *     {@link BigInteger }
          *     
          */
-        public BigInteger getNumeroSinistri() {
+        public Integer getNumeroSinistri() {
             return numeroSinistri;
         }
 
@@ -230,7 +231,7 @@ public class Assicurati {
          *     {@link BigInteger }
          *     
          */
-        public void setNumeroSinistri(BigInteger value) {
+        public void setNumeroSinistri(Integer value) {
             this.numeroSinistri = value;
         }
 

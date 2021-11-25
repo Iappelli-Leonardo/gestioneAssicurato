@@ -8,6 +8,6 @@ public interface AssicuratoService {
 	
 	public List<Assicurato> listAll();
 	
-	boolean AggiungiAssicurato(List<Assicurato> assicurati);
+	boolean aggiungiAssicurato(List<Assicurato> assicurati);
 	
 }
