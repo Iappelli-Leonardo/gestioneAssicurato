@@ -2,12 +2,15 @@
 // Questo file è stato generato dall'architettura JavaTM per XML Binding (JAXB) Reference Implementation, v2.2.8-b130911.1802 
 // Vedere <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Qualsiasi modifica a questo file andrà persa durante la ricompilazione dello schema di origine. 
-// Generato il: 2021.11.25 alle 12:33:49 PM CET 
+// Generato il: 2021.11.25 alle 02:31:48 PM CET 
 //
 
 
 package it.prova.gestione.model;
 
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -27,7 +30,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="assicurato">
+ *         &lt;element name="assicurato" maxOccurs="unbounded">
  *           &lt;complexType>
  *             &lt;complexContent>
  *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
@@ -35,7 +38,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *                   &lt;element name="nome" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *                   &lt;element name="cognome" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *                   &lt;element name="dataNascita" type="{http://www.w3.org/2001/XMLSchema}date"/>
- *                   &lt;element name="numeroSinistri" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *                   &lt;element name="numeroSinistri" type="{http://www.w3.org/2001/XMLSchema}integer"/>
+ *                   &lt;element name="codiceFiscale" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *                 &lt;/sequence>
  *               &lt;/restriction>
  *             &lt;/complexContent>
@@ -57,30 +61,35 @@ import javax.xml.datatype.XMLGregorianCalendar;
 public class Assicurati {
 
     @XmlElement(required = true)
-    protected Assicurati.Assicurato assicurato;
+    protected List<Assicurati.Assicurato> assicurato;
 
     /**
-     * Recupera il valore della proprietà assicurato.
+     * Gets the value of the assicurato property.
      * 
-     * @return
-     *     possible object is
-     *     {@link Assicurati.Assicurato }
-     *     
-     */
-    public Assicurati.Assicurato getAssicurato() {
-        return assicurato;
-    }
-
-    /**
-     * Imposta il valore della proprietà assicurato.
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the assicurato property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link Assicurati.Assicurato }
-     *     
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getAssicurato().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link Assicurati.Assicurato }
+     * 
+     * 
      */
-    public void setAssicurato(Assicurati.Assicurato value) {
-        this.assicurato = value;
+    public List<Assicurati.Assicurato> getAssicurato() {
+        if (assicurato == null) {
+            assicurato = new ArrayList<Assicurati.Assicurato>();
+        }
+        return this.assicurato;
     }
 
 
@@ -97,7 +106,8 @@ public class Assicurati {
      *         &lt;element name="nome" type="{http://www.w3.org/2001/XMLSchema}string"/>
      *         &lt;element name="cognome" type="{http://www.w3.org/2001/XMLSchema}string"/>
      *         &lt;element name="dataNascita" type="{http://www.w3.org/2001/XMLSchema}date"/>
-     *         &lt;element name="numeroSinistri" type="{http://www.w3.org/2001/XMLSchema}int"/>
+     *         &lt;element name="numeroSinistri" type="{http://www.w3.org/2001/XMLSchema}integer"/>
+     *         &lt;element name="codiceFiscale" type="{http://www.w3.org/2001/XMLSchema}string"/>
      *       &lt;/sequence>
      *     &lt;/restriction>
      *   &lt;/complexContent>
@@ -111,7 +121,8 @@ public class Assicurati {
         "nome",
         "cognome",
         "dataNascita",
-        "numeroSinistri"
+        "numeroSinistri",
+        "codiceFiscale"
     })
     public static class Assicurato {
 
@@ -122,7 +133,10 @@ public class Assicurati {
         @XmlElement(required = true)
         @XmlSchemaType(name = "date")
         protected XMLGregorianCalendar dataNascita;
-        protected int numeroSinistri;
+        @XmlElement(required = true)
+        protected BigInteger numeroSinistri;
+        @XmlElement(required = true)
+        protected String codiceFiscale;
 
         /**
          * Recupera il valore della proprietà nome.
@@ -199,17 +213,49 @@ public class Assicurati {
         /**
          * Recupera il valore della proprietà numeroSinistri.
          * 
+         * @return
+         *     possible object is
+         *     {@link BigInteger }
+         *     
          */
-        public int getNumeroSinistri() {
+        public BigInteger getNumeroSinistri() {
             return numeroSinistri;
         }
 
         /**
          * Imposta il valore della proprietà numeroSinistri.
          * 
+         * @param value
+         *     allowed object is
+         *     {@link BigInteger }
+         *     
          */
-        public void setNumeroSinistri(int value) {
+        public void setNumeroSinistri(BigInteger value) {
             this.numeroSinistri = value;
+        }
+
+        /**
+         * Recupera il valore della proprietà codiceFiscale.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getCodiceFiscale() {
+            return codiceFiscale;
+        }
+
+        /**
+         * Imposta il valore della proprietà codiceFiscale.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setCodiceFiscale(String value) {
+            this.codiceFiscale = value;
         }
 
     }
