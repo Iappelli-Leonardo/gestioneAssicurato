@@ -8,7 +8,12 @@
 
 package it.prova.assicurati.xml;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlRegistry;
+
+import it.prova.assicurati.model.Assicurato;
 
 
 /**
@@ -51,5 +56,16 @@ public class ObjectFactory {
     public Assicurati.Assicurato createAssicuratiAssicurato() {
         return new Assicurati.Assicurato();
     }
+    
+	public List<Assicurato> convertiInObject(List<Assicurati.Assicurato> list) {
+		List<Assicurato> listCoverted = new ArrayList<Assicurato>();
+
+		for (Assicurati.Assicurato assicurato : list) {
+			Assicurato temp = new Assicurato(assicurato.getNome(), assicurato.getCognome(), assicurato.getDataNascita(),
+					assicurato.getCodiceFiscale(), assicurato.getNumeroSinistri());
+			listCoverted.add(temp);
+		}
+		return listCoverted;
+	}
 
 }
