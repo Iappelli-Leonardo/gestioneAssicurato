@@ -9,5 +9,4 @@ public interface AssicuratoService {
 	public List<Assicurato> listAll();
 	
 	boolean aggiungiAssicurato(List<Assicurato> assicurati);
-	
 }
